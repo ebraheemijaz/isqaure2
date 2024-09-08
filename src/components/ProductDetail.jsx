@@ -10,8 +10,6 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Link, useParams } from "react-router-dom";
 
-import { BlocksRenderer } from "@strapi/blocks-react-renderer";
-
 export default function ProductDetail() {
   const [loader, setLoading] = useState(true);
   const [product, setProduct] = useState({});
