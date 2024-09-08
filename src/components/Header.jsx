@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import logo from "../assets/logo.png";
+// import logo from "../assets/logo.png";
 import InfoContext, { DetailsContect } from "./InfoContext";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
@@ -29,6 +29,9 @@ export default function Header() {
       }
     }
   };
+
+  const logo =
+    import.meta.env.VITE_API_URL + details?.Logo?.data?.attributes?.url;
 
   return (
     <header
@@ -68,8 +71,8 @@ export default function Header() {
       <div class="branding d-flex align-items-cente">
         <div class="container position-relative d-flex align-items-center justify-content-between">
           <Link to="/" class="logo d-flex align-items-center">
-            {/* <img src={logo} alt="" /> */}
-            <h1 class="sitename">{details?.Name}</h1>
+            <img src={logo} alt="" />
+            {/* <h1 class="sitename">{details?.Name}</h1> */}
           </Link>
 
           <nav id="navmenu" class="navmenu">

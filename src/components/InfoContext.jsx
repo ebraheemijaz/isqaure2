@@ -14,7 +14,7 @@ export default function InfoContext({ children }) {
         const response = await fetch(
           `${
             import.meta.env.VITE_API_URL
-          }/api/shop-detail?populate[shop_image_1]=*&populate[shop_image_2]=*&populate[owner_img]=*&populate[banner][populate]=*`
+          }/api/shop-detail?populate[shop_image_1]=*&populate[shop_image_2]=*&populate[owner_img]=*&populate[banner][populate]=*&populate[Logo]=*`
         );
 
         const data = await response.json();
