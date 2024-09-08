@@ -18,7 +18,12 @@ export default function SingleProduct({ data }) {
       }}
     >
       <Link to="#" class="glightbox">
-        <img src={img} class="menu-img img-fluid" alt="" />
+        <img
+          src={img}
+          class="menu-img img-fluid"
+          style={{ borderRadius: "47px", border: "2px solid" }}
+          alt=""
+        />
       </Link>
       <h4 style={{ color: "white" }}>{data?.attributes?.Name}</h4>
       <p class="ingredients" style={{ color: "white" }}>

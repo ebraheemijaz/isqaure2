@@ -79,9 +79,7 @@ export default function ContactUs() {
                   Shop Timing
                   <br />
                 </h3>
-                <p>
-                  <strong>Mon-Sun:</strong> 11AM - 11PM;
-                </p>
+                <p>{details.timing}</p>
               </div>
             </div>
           </div>

@@ -40,6 +40,16 @@ function App() {
         </>
       ),
     },
+    {
+      path: "/products",
+      element: (
+        <>
+          <Header />
+          <Products />
+          <Footer />
+        </>
+      ),
+    },
   ]);
 
   useEffect(() => {

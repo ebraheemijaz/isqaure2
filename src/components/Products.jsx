@@ -1,14 +1,25 @@
 import React, { useEffect, useState } from "react";
 import SingleProduct from "./SingleProduct";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
+const PAGE_SIZE = 6;
 
 export default function Products() {
   const [allCat, setAllCat] = useState([]);
   const [products, setProducts] = useState([]);
-  const [loader, setLoading] = useState(true);
+  const [total, setTotal] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [active, setActive] = useState({
     name: "All",
     id: 0,
   });
+
+  const [page, setPage] = useState(1);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const isHomePage = location.pathname === "/";
 
   const getCat = async () => {
     try {
@@ -25,16 +36,19 @@ export default function Products() {
     }
   };
 
-  const getProduct = async (cat) => {
-    let url = `${import.meta.env.VITE_API_URL}/api/products?populate=*`;
-    if (cat !== "all") {
-      url = url + `&filters[category]=${cat}`;
+  const getProduct = async (catID, page = 1) => {
+    let url = `${
+      import.meta.env.VITE_API_URL
+    }/api/products?populate=*&pagination[page]=${page}&pagination[pageSize]=${PAGE_SIZE}`;
+    if (catID !== 0) {
+      url = url + `&filters[category]=${catID}`;
     }
     try {
       setLoading(true);
       const response = await fetch(url);
       const data = await response.json();
-      setProducts(data.data || []);
+      setProducts((prev) => [...prev, ...(data.data || [])]);
+      setTotal(data?.meta?.pagination?.total);
       setLoading(false);
     } catch (error) {
       console.error("Error fetching shop details:", error);
@@ -46,13 +60,13 @@ export default function Products() {
   }, []);
 
   useEffect(() => {
-    getProduct(active.name === "All" ? "all" : active.id);
+    getProduct(active.name === "All" ? 0 : active.id);
   }, [active]);
 
   return (
     <section id="products" class="menu section">
       <div class="container section-title" data-aos="fade-up">
-        <h2>Products</h2>
+        <h2 style={{ color: "white" }}>Products</h2>
         <p>
           <span style={{ color: "white" }}>Check Our</span>&nbsp;
           <font color="#ce1212">Products</font>
@@ -69,6 +83,8 @@ export default function Products() {
             class="nav-item active"
             role="presentation"
             onClick={() => {
+              setProducts([]);
+              setPage(1);
               setActive({
                 name: "All",
                 id: 0,
@@ -92,6 +108,8 @@ export default function Products() {
               role="presentation"
               key={each.id}
               onClick={() => {
+                setProducts([]);
+                setPage(1);
                 setActive({
                   name: each.attributes.Name,
                   id: each.id,
@@ -171,6 +189,33 @@ export default function Products() {
           </div>
         </div>
       </div>
+      {isHomePage && total > PAGE_SIZE && (
+        <div class="container d-flex justify-content-center">
+          <button
+            disabled={loading}
+            class="btn-get-started "
+            onClick={() => {
+              navigate("/products");
+            }}
+          >
+            {loading ? "Loading" : "More Products"}
+          </button>
+        </div>
+      )}
+      {!isHomePage && total > products?.length && (
+        <div class="container d-flex justify-content-center">
+          <button
+            disabled={loading}
+            class="btn-get-started "
+            onClick={() => {
+              setPage(page + 1);
+              getProduct(active.id, page + 1);
+            }}
+          >
+            {loading ? "Loading" : "Load More"}
+          </button>
+        </div>
+      )}
     </section>
   );
 }

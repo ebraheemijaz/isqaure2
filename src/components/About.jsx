@@ -31,7 +31,13 @@ export default function About() {
               <img src={about} class="img-fluid mb-4" alt="" />
               <div class="book-a-table">
                 <h3 style={{ color: "white" }}>Contact Us</h3>
-                <p>{details.phone}</p>
+                <a
+                  className="cursor"
+                  href={`https://wa.me/${details.whatsapp}`}
+                  target="_blank"
+                >
+                  <p>{details.phone}</p>
+                </a>
               </div>
             </div>
             <div class="col-lg-5" data-aos="fade-up" data-aos-delay="250">

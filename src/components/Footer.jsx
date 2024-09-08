@@ -34,9 +34,7 @@ export default function Footer() {
             <i class="bi bi-clock icon"></i>
             <div>
               <h4> Shop Timing</h4>
-              <p>
-                <strong>Mon-Sat:</strong> <span>11AM - 11PM;</span>
-              </p>
+              <p>{details.timing}</p>
             </div>
           </div>
 
@@ -46,6 +44,12 @@ export default function Footer() {
               <a href={details.facebook_url} target="_blank" class="facebook">
                 <i class="bi bi-facebook"></i>
               </a>
+              <a href={details.instagram_url} target="_blank" class="instagram">
+                <i class="bi bi-instagram"></i>
+              </a>
+              <a href={details.ticktok_url} target="_blank" class="tiktok">
+                <i class="bi bi-tiktok"></i>
+              </a>
 
               {/*             
               <a href="#" class="twitter">
@@ -53,9 +57,6 @@ export default function Footer() {
               </a>
               <a href="#" class="facebook">
                 <i class="bi bi-facebook"></i>
-              </a>
-              <a href="#" class="instagram">
-                <i class="bi bi-instagram"></i>
               </a>
               <a href="#" class="linkedin">
                 <i class="bi bi-linkedin"></i>
@@ -67,7 +68,7 @@ export default function Footer() {
 
       <div class="container copyright text-center mt-4">
         <p>
-          Design & Develop by{"    "}
+          This website Developed by{"    "}
           <a href="https://ftssolution.tech/" target="_blank">
             FTS Tech
           </a>

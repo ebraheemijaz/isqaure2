@@ -8,7 +8,9 @@ import Loader from "./Loader";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
 export default function ProductDetail() {
   const [loader, setLoading] = useState(true);
@@ -33,6 +35,15 @@ export default function ProductDetail() {
     getProduct();
   }, []);
 
+  const [backgroundPosition, setBackgroundPosition] = useState("center");
+
+  const handleMouseMove = (e) => {
+    const { left, top, width, height } = e.target.getBoundingClientRect();
+    const x = ((e.pageX - left) / width) * 100;
+    const y = ((e.pageY - top) / height) * 100;
+    setBackgroundPosition(`${x}% ${y}%`);
+  };
+
   return (
     <>
       {loader && <Loader />}
@@ -44,7 +55,7 @@ export default function ProductDetail() {
               <nav class="breadcrumbs">
                 <ol>
                   <li>
-                    <a href="index.html">Home</a>
+                    <Link to="/">Home</Link>
                   </li>
                   <li class="current" style={{ color: "white" }}>
                     {product?.attributes?.Name}
@@ -70,13 +81,27 @@ export default function ProductDetail() {
                     >
                       {product?.attributes?.Image?.data?.map((each) => (
                         <SwiperSlide>
-                          <img
-                            src={
-                              import.meta.env.VITE_API_URL +
-                              each?.attributes?.url
-                            }
-                            alt=""
-                          />
+                          <div
+                            className="image-container"
+                            onMouseMove={handleMouseMove}
+                            style={{
+                              backgroundPosition,
+                              backgroundImage: `url(${
+                                import.meta.env.VITE_API_URL +
+                                each?.attributes?.url
+                              }
+                              )`,
+                            }}
+                          >
+                            <img
+                              src={
+                                import.meta.env.VITE_API_URL +
+                                each?.attributes?.url
+                              }
+                              alt="Sample"
+                              className="zoom-image"
+                            />
+                          </div>
                         </SwiperSlide>
                       ))}
                       {/* <SwiperSlide>
@@ -123,9 +148,14 @@ export default function ProductDetail() {
                     data-aos-delay="300"
                   >
                     <h2 style={{ color: "white" }}>Description</h2>
-                    <p style={{ color: "white" }}>
-                      {product?.attributes?.Description}
-                    </p>
+
+                    {product?.attributes?.Description?.split("\n")?.map(
+                      (each, index) => (
+                        <p key={index} style={{ color: "white" }}>
+                          {each}
+                        </p>
+                      )
+                    )}
                   </div>
                 </div>
               </div>
