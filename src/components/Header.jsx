@@ -116,7 +116,7 @@ export default function Header() {
                   Products
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   to="#owner"
                   class=""
@@ -127,7 +127,7 @@ export default function Header() {
                 >
                   Owner
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link
                   to="#contact"

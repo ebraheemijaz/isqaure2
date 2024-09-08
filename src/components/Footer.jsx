@@ -5,7 +5,7 @@ export default function Footer() {
   const details = useContext(DetailsContect);
 
   return (
-    <footer id="footer" class="footer dark-background">
+    <footer id="contact" class="footer dark-background">
       <div class="container">
         <div class="row gy-3">
           <div class="col-lg-3 col-md-6 d-flex">

@@ -24,8 +24,8 @@ function App() {
           <About />
           <Choose />
           <Products />
-          <Owner />
-          <ContactUs />
+          {/* <Owner /> */}
+          {/* <ContactUs /> */}
           <Footer />
         </>
       ),
