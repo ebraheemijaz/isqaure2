@@ -69,7 +69,7 @@ export default function About() {
                     </span>
                   </li>
                 </ul> */}
-                <p style={{ color: "white" }}>
+                <p style={{ color: "white", textAlign: "justify" }}>
                   Looking to buy or sell a phone? Our shop offers a hassle-free
                   experience with top-notch deals on the latest devices. Whether
                   you're upgrading to the newest model or looking to sell your

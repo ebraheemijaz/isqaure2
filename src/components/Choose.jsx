@@ -8,7 +8,7 @@ export default function Choose() {
           <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
             <div class="why-box">
               <h3>Why Choose Us</h3>
-              <p>
+              <p style={{ textAlign: "justify" }}>
                 At our phone shop, we prioritize customer satisfaction by
                 offering competitive prices, a seamless buying and selling
                 process, and expert advice. Whether you're upgrading to the
