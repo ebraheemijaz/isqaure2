@@ -11,6 +11,7 @@ export default function Header() {
   const navigate = useNavigate();
 
   const handleScrollToSection = (sectionID) => {
+    setOpenMobileMenu(false);
     const isHomePage = location.pathname === "/";
     if (!isHomePage) {
       navigate("/");
