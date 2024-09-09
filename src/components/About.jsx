@@ -29,7 +29,7 @@ export default function About() {
           <div class="row gy-4">
             <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
               <img src={about} class="img-fluid mb-4" alt="" />
-              <div class="book-a-table">
+              {/* <div class="book-a-table">
                 <h3 style={{ color: "white" }}>Contact Us</h3>
                 <a
                   className="cursor"
@@ -38,7 +38,7 @@ export default function About() {
                 >
                   <p>{details.phone}</p>
                 </a>
-              </div>
+              </div> */}
             </div>
             <div class="col-lg-5" data-aos="fade-up" data-aos-delay="250">
               <div class="content ps-0 ps-lg-5">

@@ -66,11 +66,13 @@ export default function Products() {
   return (
     <section id="products" class="menu section">
       <div class="container section-title" data-aos="fade-up">
-        <h2 style={{ color: "white" }}>Products</h2>
-        <p>
+        <h1 style={{ color: "white", fontFamily: "unset !important" }}>
+          Products
+        </h1>
+        {/* <p>
           <span style={{ color: "white" }}>Check Our</span>&nbsp;
           <font color="#ce1212">Products</font>
-        </p>
+        </p> */}
       </div>
       <div class="container">
         <ul
@@ -176,8 +178,8 @@ export default function Products() {
             role="tabpanel"
           >
             <div class="tab-header text-center">
-              <p style={{ color: "white" }}>{active.name} </p>
-              <h3>Products</h3>
+              {/* <p style={{ color: "white" }}>{active.name} </p> */}
+              {/* <h3>Products</h3> */}
             </div>
             <div class="row gy-5">
               {products?.map((each) => (

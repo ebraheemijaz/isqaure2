@@ -8,7 +8,7 @@ export default function Footer() {
     <footer id="contact" class="footer dark-background">
       <div class="container">
         <div class="row gy-3">
-          <div class="col-lg-3 col-md-6 d-flex">
+          <div class="col-lg-2 col-md-6 d-flex">
             <i class="bi bi-geo-alt icon"></i>
             <div class="address">
               <h4>Address</h4>
@@ -17,15 +17,28 @@ export default function Footer() {
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-6 d-flex">
+          <div class="col-lg-2 col-md-6 d-flex">
             <i class="bi bi-telephone icon"></i>
             <div>
-              <h4>Contact</h4>
+              <h4>Phone</h4>
               <p>
                 <strong>Phone:</strong> <span>{details.phone}</span>
-                <br />
+                {/* <br />
                 <strong>Email:</strong> <span>{details.email}</span>
-                <br />
+                <br /> */}
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex">
+            <i class="bi bi-envelope icon"></i>
+            <div>
+              <h4>Email</h4>
+              <p>
+                {/* <strong>Email:</strong> <span>{details.phone}</span> */}
+                {/* <br />
+                <br /> */}
+                <strong>Email:</strong> <span>{details.email}</span>
               </p>
             </div>
           </div>
@@ -38,7 +51,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-6">
+          <div class="col-lg-2 col-md-6">
             <h4>Follow Us</h4>
             <div class="social-links d-flex">
               <a href={details.facebook_url} target="_blank" class="facebook">
