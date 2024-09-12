@@ -16,12 +16,12 @@ export default function About() {
     <>
       <section id="about" class="about section">
         <div class="container section-title" data-aos="fade-up">
-          <h2>
+{/*           <h2>
             About Us
             <br />
-          </h2>
+          </h2> */}
           <p>
-            <span style={{ color: "white" }}>Learn More</span>{" "}
+{/*             <span style={{ color: "white" }}>Learn More</span>{" "} */}
             <span class="description-title">About Us</span>
           </p>
         </div>
